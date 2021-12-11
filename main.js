@@ -12,11 +12,36 @@ const rl = readline.createInterface({
 });
 
 // the function that will be called by the unit test below
+let gameTie = false
+let user1Won = false
+let user2Won = false
+const rock = 'ROCK'
+const scissors = 'SCISSORS'
+const paper = 'PAPER'
+
+
 const rockPaperScissors = (hand1, hand2) => {
+if (hand1 === rock && hand2 === scissors || hand1 === paper && hand2 === rock || hand1 === scissors && hand2 === paper) {
+ 
+  hand1.trim().toLowerCase()
+  user1Won = true;
+  return "Hand one wins!"
 
-  // Write code here
-  // Use the unit test to see what is expected
+} else if ( hand2 === rock && hand1 === scissors || hand1 === paper && hand1 === rock || hand2 === scissors && hand2 === paper) {
+  
+  hand2.trim().toLowerCase()
+  user2Won = true;
+  return "Hand two wins!"
 
+} else  ( hand1 === rock && hand2 === rock || hand1 === paper && hand2 === paper || hand1 === scissors && hand2 === scissors) {
+ 
+  hand1.trim().toLowerCase()
+  hand2.trim().toLowerCase()
+  gameTie = true;
+  return "It's a tie!"
+
+
+}
 }
 
 // the first function called in the program to get an input from the user
